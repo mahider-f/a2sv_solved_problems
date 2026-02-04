@@ -1,0 +1,27 @@
+class Solution(object):
+    def removeComments(self, source):
+        
+         valid= []
+        inside = False
+
+        for line in source:
+            i = 0
+            if not inside:
+                new = []
+                
+            while i < len(line):
+                if line[i:i+2] == '/*' and not inside:
+                    inside = True
+                    i += 1
+                elif line[i:i+2] == '*/' and inside:
+                    inside = False
+                    i += 1
+                elif not inside and line[i:i+2] == '//':
+                    break
+                elif not inside:
+                    new.append(line[i])
+                i += 1
+            if new and not inside:
+                valid.append("".join(new))
+
+        return valid
