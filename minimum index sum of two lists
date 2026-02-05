@@ -1,0 +1,16 @@
+class Solution:
+    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+
+        ans=[]
+        index={val:ind for ind,val in enumerate(list1)}
+        minSum= inf
+
+        for ind,val in enumerate(list2):
+            if val in index:
+                x=ind+index[val]  
+                if x<minSum:
+                    minSum=x
+                    ans=[val]
+                elif x==minSum:
+                    ans.append(val)
+        return ans   
