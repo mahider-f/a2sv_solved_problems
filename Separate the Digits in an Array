@@ -1,0 +1,12 @@
+class Solution:
+    def separateDigits(self, nums: List[int]) -> List[int]:
+        a="".join(map(str, nums))
+        b=[]
+        for i in range (len(a)):
+            if i==' ':
+                continue
+            else:
+                m=int(a[i])
+                b.append(m)
+
+        return b
