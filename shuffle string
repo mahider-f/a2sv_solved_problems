@@ -1,0 +1,8 @@
+class Solution:
+    def restoreString(self, s: str, indices: List[int]) -> str:
+        word=[]
+        for i in range(len(s)):
+            word.append('a')
+        for i in range(len(s)):
+            word[indices[i]]=s[i]
+        return "".join(map(str, word))
