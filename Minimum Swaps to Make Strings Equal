@@ -1,0 +1,21 @@
+class Solution:
+    def minimumSwap(self, s1: str, s2: str) -> int:
+        s3 = s1 + s2
+        s3_count =  Counter(s3)
+
+        for v in s3_count.values():
+            if v%2 != 0:
+                return -1
+
+        xy = yx = 0
+        for x,y in zip(s1,s2):
+            if x ==  'x' and y == 'y':
+                xy += 1
+            elif x == 'y' and y == 'x':
+                yx += 1
+
+        return xy // 2 + yx // 2 + (xy % 2) * 2
+        
+        
+        
+            
