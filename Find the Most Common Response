@@ -1,0 +1,10 @@
+class Solution:
+    def findCommonResponse(self, responses: List[List[str]]) -> str:
+        ans = []
+        if not responses:
+            return ''
+        for word in responses:
+             ans.extend(set(word))
+        res = Counter(ans)
+
+        return min(res.items(), key=lambda x: (-x[1], x[0]))[0]
