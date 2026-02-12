@@ -1,0 +1,13 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        count_ransom = Counter(ransomNote)
+        count_magazine = Counter(magazine)
+        flag = True
+
+        for x in count_ransom:
+            if count_ransom[x] <= count_magazine[x]:
+                flag = True
+            else:
+                return False
+        if flag:
+            return True
