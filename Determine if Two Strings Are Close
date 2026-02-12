@@ -1,0 +1,11 @@
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        wrd1 = Counter(word1)
+        wrd2 = Counter(word2)
+        
+        if len(word1) != len(word2) or set(word1) != set(word2) or sorted(wrd1.values()) != sorted(wrd2.values()):
+            return False
+        
+        return True
+
+        
