@@ -1,0 +1,23 @@
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """ 
+        m = len(matrix)
+        n = len(matrix[0])
+        zeros_col = set()
+        zeros_row = set()
+
+        for i in range(m):
+            for j in range(n):
+                if matrix[i][j] == 0:
+                    zeros_col.add(j)
+                    zeros_row.add(i)
+                    
+        for i in range(m):
+            for j in range(n):
+                if i in zeros_row or j in zeros_col:
+                    matrix[i][j] = 0
+
+
+        
