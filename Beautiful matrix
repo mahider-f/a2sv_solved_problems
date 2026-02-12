@@ -1,0 +1,9 @@
+matrix =  [list(map(int, input().split())) for _ in range(5)]
+target = 1
+ans = 0
+
+for x, y in enumerate(matrix):
+    for a,b in enumerate(y):
+        if b == target:
+            ans = abs(2-a)+abs(2-x)
+print(ans)
