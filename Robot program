@@ -1,0 +1,44 @@
+t = int(input())
+
+for _ in range(t):
+    n, x, k = map(int, input().split())
+    moves = input()
+
+    pos = x
+    first = -1
+
+    
+    for i in range(min(n, k)):
+        if moves[i] == 'L':
+            pos -= 1
+        else:
+            pos += 1
+
+        if pos == 0:
+            first = i + 1
+            break
+
+    if first == -1:
+        print(0)
+        continue
+
+    pos = 0
+    before = -1
+
+    for i in range(n):
+        if moves[i] == 'L':
+            pos -= 1
+        else:
+            pos += 1
+
+        if pos == 0:
+            before = i + 1
+            break
+
+    ans = 1
+    remaining = k - first
+
+    if before != -1:
+        ans += remaining // before
+
+    print(ans)
