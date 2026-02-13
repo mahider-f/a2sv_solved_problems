@@ -1,0 +1,23 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        s = s.split()
+        pattern_set = set()
+        mapping = {}
+
+        a = set(s)
+        b= set(pattern)
+        if len(a) != len(b) or len(pattern) != len(s):
+            return False
+        
+        
+        for k, v in zip(pattern, s):
+            if k in mapping:
+                if mapping[k] != v:
+                    return False
+            else:
+                mapping[k] = v
+            
+        return True
+
+
+
