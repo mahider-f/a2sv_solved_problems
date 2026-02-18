@@ -1,0 +1,14 @@
+n = int(input())
+nums = list(map(int, input().split()))
+count = 0
+a = 1
+b = 0
+nums.sort()
+while b<n:
+    if a <=nums[b]:
+        a+=1
+        count+=1
+    b+=1
+print(count)
+
+
