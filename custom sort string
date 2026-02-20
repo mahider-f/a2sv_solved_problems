@@ -1,0 +1,17 @@
+class Solution:
+    def customSortString(self, order: str, s: str) -> str:
+        k = []  
+        counted_s = Counter(s)    
+        
+        for x in order:
+            if x not in counted_s:
+                continue
+
+            for _ in range(counted_s[x]):
+                k.append(x)
+                
+        d = [x for x in s if x not in k]
+
+        permuted = k+d
+        return ''.join(permuted)
+            
