@@ -1,0 +1,14 @@
+t = int(input())
+
+for _ in range(t):
+    n, k = map(int, input().split())
+    casinos = [tuple(map(int, input().split())) for _ in range(n)]
+
+    casinos.sort()  
+
+    x = k
+    for l, r, real in casinos:
+        if l <= x <= r:
+            x = max(x, real)
+
+    print(x)
