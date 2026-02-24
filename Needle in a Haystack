@@ -1,0 +1,37 @@
+from collections import Counter
+n= int(input())
+
+for i in range(n):
+    s=list(input())
+    t=list(input())
+
+    countedS = Counter(s)
+    countedT = Counter(t)
+    flag = True
+    word = []
+    a = 0
+    b = 0
+
+    for x in countedS:
+        if countedT[x] < countedS[x]:
+            flag = False
+        countedT[x] = countedT[x] - countedS[x]
+    
+    new = [key*x for key, x in countedT.items() if x>0]
+    new.sort()
+    while b < len(s) and a < len(new):
+        if new[a] < s[b]:
+            word.append(new[a])
+            a+=1
+        elif s[b]< new[a]:
+            word.append(s[b])
+            b+=1
+        else:
+            word.append(s[b])
+            b+=1
+    word.extend(s[b:])
+    word.extend(new[a:])
+    if flag == False:
+        print("Impossible") 
+    else:
+        print("".join(word))
