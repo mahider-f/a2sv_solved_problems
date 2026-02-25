@@ -1,0 +1,30 @@
+from collections import Counter
+t = int(input())
+
+for _ in range(t):
+    s = input()
+    working = set()
+
+
+    a=0
+    while a < len(s):
+        b=a
+        while b<len(s) and s[a]==s[b]:
+            b+=1
+        n = b-a
+
+        if n%2 == 1:
+            working.add(s[a])
+        
+        
+        a=b
+    print(''.join(sorted(working)))
+    
+            
+        
+            
+    
+
+
+
+        
