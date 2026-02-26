@@ -1,0 +1,15 @@
+from collections import Counter
+n,m = map(int,input().split())
+arr1 = list(map(int,input().split()))
+arr2 = list(map(int,input().split()))
+count1 = Counter(arr1)
+count2 = Counter(arr2)
+ans = 0
+
+for k in count1.keys():
+    if k in count2.keys():
+        ans += count1[k]*count2[k]
+print(ans)
+
+
+
