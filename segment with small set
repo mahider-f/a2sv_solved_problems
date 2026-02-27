@@ -1,0 +1,19 @@
+n, s = map(int, input().split())
+nums = list(map(int, input().split()))
+
+left = 0
+ans = 0
+count = {}
+# length = 0
+
+for right in range(n):
+    count[nums[right]] = count.get(nums[right], 0)+1
+
+    while len(count) > s:
+        count[nums[left]]-=1
+        if count[nums[left]] == 0:
+            del count[nums[left]]
+        left += 1
+        
+    ans += (right-left+1)
+print(ans)
