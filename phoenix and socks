@@ -1,0 +1,45 @@
+from collections import Counter
+t = int(input())
+
+for _ in range(t):
+    n, l ,r = map(int,input().split())
+    socks = list(map(int, input().split()))
+    left = socks[:l]
+    right = socks[l:]
+    countLeft = Counter(left)
+    countRight = Counter(right)
+    cost = 0
+    left_l = []
+    right_l = []
+    for x in countLeft:
+        if countLeft[x] >= countRight[x]:
+            left_l.append(countLeft[x] - countRight[x])
+    for x in countRight:
+        if countRight[x] >= countLeft[x]:
+            right_l.append(countRight[x] - countLeft[x])
+    l, r = sum(left_l), sum(right_l)
+    if l < r:
+        r, l = l, r
+        left_l, right_l = right_l, left_l
+    mikeyerew = (l - r)//2 
+    left_l.sort(reverse=True)
+    cost += r
+    for val in left_l:
+        can = val // 2
+        actual = min(can, mikeyerew)
+        mikeyerew -= actual
+        cost += actual
+    cost += mikeyerew * 2
+    print(cost)
+    
+    
+    
+        
+
+    
+    
+
+
+    
+
+
