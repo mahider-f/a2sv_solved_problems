@@ -1,6 +1,6 @@
 # 1504B-Flip-the-Bits
 
-**Problem:** [1504B-Flip-the-Bits](https://codeforces.com/contest/1504/problem/B)
+**Problem:** [1504B-Flip-the-Bits](https://codeforces.com/problemset/problem/1504/B)
 
 **time limit per test:** 1 second
 
