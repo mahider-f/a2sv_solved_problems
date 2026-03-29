@@ -1,5 +1,12 @@
 class Solution:
     def canBeEqual(self, s1: str, s2: str) -> bool:
-        return sorted(s1[::2]) == sorted(s2[::2]) and sorted(s1[1::2]) == sorted(
-            s2[1::2]
-        )
+        odd, even = defaultdict(int), defaultdict(int)
+        for i in range(len(s1)):
+            if i % 2 == 0:
+                even[s1[i]] += 1
+                even[s2[i]] -= 1
+            else:
+                odd[s1[i]] += 1
+                odd[s2[i]] -= 1
+
+        return set(odd.values()) == {0} and set(even.values()) == {0}
