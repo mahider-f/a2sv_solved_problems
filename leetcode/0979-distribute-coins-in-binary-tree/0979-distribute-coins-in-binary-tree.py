@@ -15,7 +15,7 @@ class Solution:
             left = dfs(node.left)
             right = dfs(node.right)
 
-            self.coins += abs(node.val + left + right - 1) 
+            self.coins += abs( left)+ abs(right)  
             return node.val + left + right - 1
         dfs(root)
         return self.coins
