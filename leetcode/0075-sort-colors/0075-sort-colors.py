@@ -3,7 +3,13 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        for i in range (len(nums)):
-            for j in range(i+1, len(nums)):
-                if nums[i]>nums[j]:
-                    nums[i],nums[j]=nums[j],nums[i]
+        count = [0]*3
+        for num in nums:
+            count[num] += 1
+        
+        index = 0
+        for i in range(3):
+            while count[i]:
+                count[i] -= 1
+                nums[index] = i
+                index +=1
