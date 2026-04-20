@@ -1,7 +1,7 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
 
-        graph = defaultdict(list)
+        graph = [[] for _ in range(n)]
 
         for node1, node2 in edges:
             graph[node1].append(node2)
@@ -23,7 +23,7 @@ class Solution:
                     return True
             return False
 
-        return dfs(source,)
+        return dfs(source)
 
 
             
