@@ -1,0 +1,42 @@
+from collections import defaultdict, deque
+ 
+n = int(input())
+names = [input() for _ in range(n)]
+ 
+graph = defaultdict(set)
+in_degree = {c: 0 for c in 'abcdefghijklmnopqrstuvwxyz'}
+flag = True
+for i in range(n - 1):
+    s, t = names[i], names[i+1]
+ 
+    found = False
+    for j in range(min(len(s), len(t))):
+        if s[j] != t[j]:
+            if t[j] not in graph[s[j]]:
+                graph[s[j]].add(t[j])
+                in_degree[t[j]] += 1
+            found = True
+            break
+    if not found and len(s) > len(t):
+        flag = False
+        break
+ 
+if not flag:
+    print("Impossible")
+else:
+    queue = deque(sorted([c for c in in_degree if in_degree[c] == 0]))
+    result = []
+    while queue:
+        node = queue.popleft()
+        result.append(node)
+        for neighbor in sorted(graph[node]):
+            in_degree[neighbor] -= 1
+            if in_degree[neighbor] == 0:
+                queue.append(neighbor)
+ 
+    if len(result) != 26:
+        print("Impossible")
+    else:
+        print(''.join(result))
+
+
