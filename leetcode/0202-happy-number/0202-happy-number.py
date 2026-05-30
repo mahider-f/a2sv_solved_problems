@@ -1,0 +1,13 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        def num(x):
+            sum = 0
+            while x:
+                x, r = divmod(x, 10)
+                sum += r * r
+            return sum
+
+        s, f = n, num(n)
+        while s != f:
+            s, f = num(s), num(num(f))
+        return s == 1
